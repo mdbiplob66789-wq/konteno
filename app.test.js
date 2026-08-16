@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync('app.js','utf8').split("const pages=")[0]+';module.exports={ENERGY_PACKAGES,formatEnergy,smartPackageIndex};';
+const sandbox={module:{exports:{}},Intl};vm.runInNewContext(source,sandbox);
+const {ENERGY_PACKAGES,formatEnergy,smartPackageIndex}=sandbox.module.exports;
+assert.strictEqual(formatEnergy(38000),'38 000 ⚡');
+assert.deepStrictEqual(JSON.parse(JSON.stringify(ENERGY_PACKAGES)).map(({rub,finalEnergy,bonusPercent})=>[rub,finalEnergy,bonusPercent]),[[500,5250,5],[1000,11000,10],[2500,28750,15],[5000,60000,20]]);
+assert.strictEqual(smartPackageIndex(650,12000),2);
+assert.ok(!formatEnergy(1300).startsWith('⚡'));
+const html=fs.readFileSync('index.html','utf8');assert.ok(html.includes('onclick="showPage(\'balance\')"'));assert.ok(!/\d[\s ]+T\b|токен/i.test(html));
+console.log('KONTENO Energy tests passed');
