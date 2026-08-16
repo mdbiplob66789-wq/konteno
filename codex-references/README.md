@@ -1,42 +1,9 @@
-# KONTENO approved references for Codex
+# KONTENO Codex references — publishing note
 
-This folder is intentionally lightweight so it can live in the main repository without duplicating tens of megabytes of the same reference images.
+The previous `KONTENO_APPROVED_REFERENCES.zip` was intentionally removed from `main` after it caused Codex Cloud PR publishing to fail with `Binary files are not supported`.
 
-`KONTENO_APPROVED_REFERENCES.zip` contains:
+Do not recreate or add that archive from a Codex task.
 
-- final `MASTER_PROMPT_FOR_CODEX.md`;
-- all approved KONTENO visual reference content;
-- Light Theme references;
-- global header/theme/logo references;
-- Idea references;
-- Video references;
-- Image references;
-- Editor references;
-- My Works/history references;
-- Energy/balance/purchase references;
-- Profile/notification references;
-- Landing references;
-- future Dark Theme reference;
-- current implementation references;
-- Energy currency and purchase-page specs;
-- the legacy prototype for behavioral context;
-- `TAB_REFERENCE_MAP.md`, which maps every original tab/reference path to the corresponding optimized visual in `visuals/`.
+Current Codex tasks should follow the root `AGENTS.md` plus the task prompt supplied by the user. Product rules currently fixed in `AGENTS.md` include the Light Theme, unified Energy wallet, Energy formatting (`38 000 ⚡`) and final package values.
 
-The visual copies inside the repository pack are optimized WebP versions of the approved originals so Codex can inspect them quickly. Duplicate images are stored only once and mapped back to every approved tab/path.
-
-Codex should follow the root `AGENTS.md` automatically. For manual inspection:
-
-```bash
-rm -rf /tmp/konteno-approved-references
-mkdir -p /tmp/konteno-approved-references
-unzip -q codex-references/KONTENO_APPROVED_REFERENCES.zip -d /tmp/konteno-approved-references
-```
-
-Then start with:
-
-```text
-/tmp/konteno-approved-references/MASTER_PROMPT_FOR_CODEX.md
-/tmp/konteno-approved-references/TAB_REFERENCE_MAP.md
-```
-
-Current non-negotiable currency example: `38 000 ⚡` — lightning always follows the number.
+Visual reference assets may be reintroduced later through a publishing path that does not require Codex Cloud to add binary files to a PR. Until then, keep Codex task diffs code/text-only.
