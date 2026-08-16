@@ -1,106 +1,84 @@
-# KONTENO — `Пополнить энергию` specification
+# KONTENO — `Пополнить энергию` specification — CURRENT
+
+This page is an Energy CALCULATOR, not a fixed-package selector. `TARIFFS_AND_ENERGY_V2.md` overrides older package screenshots/spec text.
 
 ## Visual target
-
-Build a dedicated responsive Light Theme page consistent with the approved KONTENO visual baseline. Use `approved-visuals/05_purchase.webp` for interaction/information hierarchy only where it shows Syntx. KONTENO branding, purple/lilac palette and premium component language must come from the KONTENO references.
+Build a dedicated responsive Light Theme page consistent with approved KONTENO visuals. Syntx may inform calculator interaction/information hierarchy only; never copy its branding, palette or identity.
 
 ## Main layout
-
 Show:
-- page title `Пополнить энергию`;
-- subtitle explaining the unified balance;
+- title `Пополнить энергию`;
+- subtitle explaining the unified Energy balance;
 - current balance, e.g. `38 000 ⚡`;
-- package selection;
-- selected Energy as a prominent value;
-- country/billing region;
-- real supported payment method selection or honest MOCK/DEMO state;
-- promo code section;
+- large calculator;
+- prominent calculated `Получишь` Energy;
+- bonus/rate helper;
+- country/billing region where needed;
+- only real supported payment methods or explicit DEMO/MOCK state;
+- optional promo state if an API exists;
 - transparent order summary;
 - final CTA.
 
-## Package selection
+## Calculator selection
+The user chooses the RUB amount directly.
 
-Only four packages exist:
-- 500 ₽ → 5 250 ⚡ (+5%)
-- 1 000 ₽ → 11 000 ⚡ (+10%)
-- 2 500 ₽ → 28 750 ⚡ (+15%)
-- 5 000 ₽ → 60 000 ⚡ (+20%)
+Required controls:
+- editable numeric `Сумма пополнения` field;
+- continuous range slider synchronized to the RUB amount;
+- calculated Energy result;
+- current bonus percentage;
+- optional helper to next bonus threshold.
 
-Default: `1 000 ₽ → 11 000 ⚡`.
+The slider is continuous within centrally configured min/max bounds. It MUST NOT snap to four predefined packages.
 
-Four package cards and the range slider must share one selected-package state. The slider snaps only to the four packages; no arbitrary amounts.
+Do not use four fixed top-up cards as the primary UI.
 
-When selection changes, synchronize:
-- selected card;
-- slider;
-- prominent selected Energy;
-- bonus;
-- summary;
-- CTA;
+## Calculation
+Unless backend config overrides it:
+- `1 ₽ = 10 base Energy`.
+- <500 ₽ → 0%
+- 500–999 ₽ → +5%
+- 1 000–2 499 ₽ → +10%
+- 2 500–4 999 ₽ → +15%
+- >=5 000 ₽ → +20%
+
+Show live:
+- RUB amount;
+- base Energy;
+- bonus Energy;
+- final Energy;
 - amount due.
 
-## Insufficient Energy
+Example for 1 400 ₽:
+`Сумма               1 400 ₽`
+`Базовая энергия      14 000`
+`Бонус +10%           +1 400`
+`Получишь             15 400 ⚡`
+`К оплате             1 400 ₽`
 
-Do not silently redirect.
-
-Show a modal/sheet containing:
-- current balance;
-- required Energy;
-- missing Energy;
-- CTA `Пополнить энергию`.
-
-Select the smallest package whose final Energy covers the shortfall. Preserve the user's creation prompt/settings/context. After a successful real top-up, offer `Вернуться к созданию`; never auto-trigger the expensive generation.
-
-## Country and payment
-
-Country/billing region is selectable unless account billing data is authoritative.
-
-Only render payment methods actually supported by the backend/provider. Possible methods such as Russian card, SBP, international card, PayPal or crypto must not be presented as real unless the integration exists.
-
-If the repository has no real payment provider/backend, render a clearly labeled MOCK/DEMO state. Do not fake checkout success and do not credit Energy.
-
-## Promo
-
-States:
-- empty;
-- validating;
-- valid;
-- invalid;
-- applied;
-- removed/reset.
-
-Do not invent working promo codes when no promo API exists.
-
-## Summary example
-
-`Пакет                1 000 ₽`
-`Базовая энергия      10 000`
-`Бонус +10%           +1 000`
-`Получишь             11 000 ⚡`
-`К оплате             1 000 ₽`
+This is an example, not a package.
 
 ## CTA
+Dynamic CTA:
+`Перейти к оплате — {rubAmount} ₽`
+Helper:
+`На баланс поступит {finalEnergy} ⚡`
 
-Preferred:
-- `Перейти к оплате — 1 000 ₽`
-- helper: `На баланс поступит 11 000 ⚡`
+## Insufficient Energy
+Show a modal/sheet with current, required and missing Energy. CTA opens the calculator with the minimum RUB amount calculated to cover the shortfall after bonus. The user may change the amount freely.
 
-Never put the lightning before the number.
+Preserve prompt/uploads/settings. After real top-up offer `Вернуться к созданию`; never auto-run generation.
 
-## State model
+## Tariffs are separate
+Do not display subscription tariff cards inside this calculator as if they were Energy packages. A subtle link `Смотреть тарифы` is allowed. Subscription purchase and Energy top-up are independent flows.
 
-Use explicit safe states such as:
-- `idle`
-- `packageSelected`
-- `paymentMethodSelected`
-- `promoValidating`
-- `ready`
-- `creatingCheckout`
-- `redirecting`
-- `success`
-- `failure`
-- `cancelled`
+## Payment safety
+Only show payment methods actually supported by backend/provider. If none exists, show a clearly labeled DEMO/MOCK checkout and do not credit Energy.
+Prevent double submit. Failed/cancelled payment never credits Energy. Real success refreshes authoritative backend wallet state.
 
-Prevent double submit.
+## Responsive
+Desktop: two columns — calculator left, order/payment summary right.
+Mobile: one column — amount, slider, result, bonus, summary, payment, CTA. No package carousel.
 
-Failed/cancelled payment never credits Energy. A real success must refresh authoritative backend wallet state rather than trusting the browser.
+## States
+Use explicit safe states such as `idle`, `editingAmount`, `ready`, `creatingCheckout`, `redirecting`, `success`, `failure`, `cancelled`.
