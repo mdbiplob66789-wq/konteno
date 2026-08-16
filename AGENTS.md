@@ -1,38 +1,39 @@
 # KONTENO — Codex project instructions
 
-Before making any product, UI, billing, balance, navigation, or theme changes, use the approved KONTENO reference pack already stored in this repository:
+Work only inside the EXISTING KONTENO repository. Do not create a replacement app and do not migrate frameworks without a real technical reason.
 
-`codex-references/KONTENO_APPROVED_REFERENCES.zip`
+## Important: no binary reference bundle
 
-## Required first step for Codex
+Do NOT look for, recreate, download, add, rename, or modify any ZIP/PNG/WebP reference bundle as part of a Codex PR. The previous binary reference archive was intentionally removed because Codex PR publishing does not support adding binary files reliably.
 
-Extract it into a temporary working directory (do not commit the extracted files unless explicitly asked):
+For the current task, use the user-provided task prompt as the primary product/design specification together with the existing repository code. Do not add binary assets unless the user explicitly asks and the publishing path supports them.
 
-```bash
-rm -rf /tmp/konteno-approved-references
-mkdir -p /tmp/konteno-approved-references
-unzip -q codex-references/KONTENO_APPROVED_REFERENCES.zip -d /tmp/konteno-approved-references
-```
+## Absolute current KONTENO rules
 
-Then read, in this order:
-
-1. `/tmp/konteno-approved-references/MASTER_PROMPT_FOR_CODEX.md`
-2. `/tmp/konteno-approved-references/TAB_REFERENCE_MAP.md`
-3. the relevant images under `/tmp/konteno-approved-references/visuals/`
-4. supporting docs under `/tmp/konteno-approved-references/docs/` and `/tmp/konteno-approved-references/APPROVED_TABS/`
-
-The archive contains all approved visual content once, with duplicate historical/tab paths mapped in `TAB_REFERENCE_MAP.md`, so the repository stays lightweight while Codex still has every approved reference.
-
-## Absolute current rules
-
-- Work inside the existing KONTENO repository. Do not create a replacement app.
 - Current production theme is the approved Light Theme.
-- Keep architecture ready for a future Dark Theme and keep the theme toggle in the global header.
-- KONTENO has ONE unified Energy balance for all tools.
-- User-facing Energy format is always number first, lightning second: `38 000 ⚡`, `1 300 ⚡`, `5 250 ⚡`.
+- Keep architecture ready for a future Dark Theme and keep a Light/Dark control in the global header, but do not build the final Dark Theme yet.
+- Main navigation: `Идея`, `Видео`, `Изображение`, `Редактор`.
+- KONTENO has exactly ONE unified Energy balance for every paid tool.
+- User-facing currency name is Energy / `Энергия`, not tokens.
+- Energy formatting is ALWAYS number first, lightning second: `38 000 ⚡`, `1 300 ⚡`, `5 250 ⚡`.
 - Never show `T` as the current currency symbol.
-- Final packages: `500 ₽ → 5 250 ⚡ (+5%)`, `1 000 ₽ → 11 000 ⚡ (+10%)`, `2 500 ₽ → 28 750 ⚡ (+15%)`, `5 000 ₽ → 60 000 ⚡ (+20%)`.
-- The Syntx purchase screenshots are interaction/layout references only. Do not copy Syntx branding or dark styling.
-- When an older screenshot conflicts with `MASTER_PROMPT_FOR_CODEX.md`, the master prompt wins.
+- Final packages:
+  - `500 ₽ → 5 250 ⚡ (+5%)`
+  - `1 000 ₽ → 11 000 ⚡ (+10%)`
+  - `2 500 ₽ → 28 750 ⚡ (+15%)`
+  - `5 000 ₽ → 60 000 ⚡ (+20%)`
+- One central package configuration must be reused everywhere.
+- The Energy purchase page should be a premium KONTENO Light Theme flow with package selection, snap slider, country/payment method UI, promo UI, transparent order summary, insufficient-Energy flow and safe checkout states.
+- Only show payment methods actually supported by the repository/backend. If there is no real provider, keep it honestly MOCK/DEMO and never fake a successful real payment.
+- Do not copy Syntx branding, dark palette or orange styling.
+- Preserve existing working creation/upload/project/navigation behavior unless the task explicitly replaces it.
+- Use reusable components/helpers and accessible responsive UI.
 
-Before finishing a task, run the repository's relevant tests/lint/build and visually verify affected desktop/mobile UI when possible.
+## Before finishing any task
+
+1. Inspect the existing repository before editing.
+2. Keep changes text/code-only unless binary publishing is explicitly required and supported.
+3. Run relevant tests, syntax/lint/build checks available in the repository.
+4. Visually inspect affected desktop/mobile UI when the environment supports a browser.
+5. Confirm `git diff --name-only` contains only intentional task files.
+6. Never add ZIPs, generated screenshots, browser downloads, `.pyc`, databases, build artifacts or other binary files to a Codex PR.
