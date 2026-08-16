@@ -2,17 +2,22 @@
 
 Work only inside the EXISTING KONTENO repository. Do not create a replacement app and do not migrate frameworks without a real technical reason.
 
-## FIRST STEP — mandatory visual audit
+## FIRST STEP — mandatory visual/product audit
 
-Before changing any UI, landing, navigation, billing, Energy, theme, Idea, Video, Image or Editor screen:
+Before changing any UI, landing, navigation, billing, Energy, theme, Idea, Video, Image, Editor, Projects, Auth or Settings screen:
 
 1. Read this file completely.
-2. Open and visually inspect EVERY file under `codex-references/approved-visuals/`.
-3. Treat those visuals as the approved KONTENO design baseline, not as optional inspiration.
-4. Compare the current implementation against the references section-by-section before coding.
-5. When an approved visual exists, DO NOT invent a generic SaaS alternative.
+2. Read `codex-references/CODEX_MASTER_PROMPT.md`.
+3. Read `codex-references/FULL_PRODUCT_DESIGN_SPEC.md`.
+4. Open `codex-references/FULL_SITE_BLUEPRINT.html` and inspect every screen in its top blueprint switcher.
+5. Open and visually inspect EVERY file under `codex-references/approved-visuals/`.
+6. Read `codex-references/REFERENCE_MANIFEST.md`, `ENERGY_CURRENCY_RULES.md`, and `ENERGY_PURCHASE_PAGE_SPEC.md`.
+7. Compare the current implementation against the references page-by-page before coding.
+8. When an approved visual or blueprint exists, DO NOT invent a generic SaaS alternative.
 
-The approved visual baseline is READ-ONLY for Codex tasks. Do not modify, delete, rename, regenerate, optimize, replace or re-commit those WebP files in a task/PR. They are already part of `main` so they remain outside the task diff.
+The approved image baseline is READ-ONLY for Codex implementation tasks. Do not modify, delete, rename, regenerate, optimize, replace or re-commit those WebP files in a task/PR. They are already part of `main` so they remain outside the task diff.
+
+`FULL_SITE_BLUEPRINT.html` and `FULL_PRODUCT_DESIGN_SPEC.md` are also design-source files. Treat them as read-only during the implementation task unless the task explicitly says to revise the design system itself.
 
 ### Reference map
 
@@ -23,6 +28,9 @@ The approved visual baseline is READ-ONLY for Codex tasks. Do not modify, delete
 - `05_purchase.webp` — purchase-page interaction references. Syntx is UX/layout logic ONLY; never copy its brand, dark palette or orange CTA. The dark Energy reference is future Dark Theme only and may contain obsolete package numbers.
 - `06_design_showcase.webp` — KONTENO design system, showcase direction and creative-format visual language.
 - `07_exact_logo.webp` — exact KONTENO logo reference. Never replace it with a generic square containing the letter `K`.
+- `FULL_SITE_BLUEPRINT.html` — complete KONTENO screenboard for Landing, Dashboard, Idea, Image, Video, Editor, Projects, Energy, Profile, Auth and critical system states.
+- `FULL_PRODUCT_DESIGN_SPEC.md` — detailed page structure, responsive rules, states, typography, palette, interactions and acceptance criteria.
+- `CODEX_MASTER_PROMPT.md` — implementation order and final completion checklist.
 
 If a screenshot inside a composite contains an older/current UI beside an approved target, the approved/newer target wins. Old section references explicitly marked current/remove/improve are not final visual targets.
 
@@ -34,6 +42,7 @@ If a screenshot inside a composite contains an older/current UI beside an approv
 - Use proper SVG/vector UI icons instead of emoji as main premium iconography.
 - Preserve the KONTENO-specific composition and visual hierarchy from the references while keeping the result responsive and usable.
 - Keep architecture ready for a future Dark Theme, but do not ship the final Dark Theme now.
+- Public site and authenticated app must feel like one brand, not two unrelated templates.
 
 ## Header / product structure
 
@@ -43,6 +52,30 @@ Desktop global header:
 - right: Light/Dark control, notifications, unified Energy balance, avatar/profile.
 
 Core product areas must be real usable workspaces, not misleading labels that all route to one generic screen.
+
+Mobile:
+- compact top bar with brand/Energy/profile;
+- bottom product navigation for Idea / Video / Image / Editor.
+
+## Required complete product surface
+
+The implementation target includes all of the following, not just the landing page:
+- public Landing;
+- Dashboard/Home after login;
+- Idea workspace;
+- Image workspace;
+- Video workspace;
+- Editor workspace;
+- Projects/History;
+- `Пополнить энергию`;
+- Profile/Settings;
+- Auth/registration shell where applicable;
+- notifications;
+- loading/success/failure/empty states;
+- insufficient-Energy modal preserving the user's work;
+- responsive desktop/tablet/mobile behavior.
+
+Use `FULL_SITE_BLUEPRINT.html` and `FULL_PRODUCT_DESIGN_SPEC.md` to resolve pages that are not fully visible in the image composites.
 
 ## Energy — absolute current rules
 
@@ -80,7 +113,9 @@ Preserve/build this product story with the visual references as the source of tr
 - `Под любой формат` — 9:16 / 1:1 / 16:9;
 - showcase/gallery;
 - `Один баланс для всего`;
-- final CTA `Готов создать что-то своё?`.
+- compact FAQ/trust;
+- final CTA `Готов создать что-то своё?`;
+- footer.
 
 ## Purchase flow
 
@@ -106,6 +141,23 @@ Required behavior:
 
 Preserve working routing, uploads, prompts, creation/demo flows, projects/history, local state, preview/download behavior, responsive navigation and accessibility unless an approved reference explicitly replaces the UX.
 
+## Visual QA
+
+When browser tooling is available, verify at minimum:
+- 1440×900 desktop;
+- approximately 1024px tablet;
+- 390×844 mobile;
+- Landing;
+- Dashboard;
+- Idea;
+- Image;
+- Video;
+- Editor;
+- Projects;
+- Energy purchase.
+
+Compare rendered UI to the approved visual references and make at least one refinement pass.
+
 ## Git safety
 
 Reference visuals in `codex-references/approved-visuals/` are baseline/read-only.
@@ -117,4 +169,5 @@ Before finishing:
 2. visually verify affected desktop/mobile UI when a browser is available;
 3. run `git diff --check`;
 4. inspect `git diff --name-only` and ensure only intentional text/code/test files changed;
-5. explicitly confirm the approved reference files did NOT enter the task diff.
+5. explicitly confirm the approved reference files did NOT enter the task diff;
+6. complete the checklist in `codex-references/CODEX_MASTER_PROMPT.md`.
