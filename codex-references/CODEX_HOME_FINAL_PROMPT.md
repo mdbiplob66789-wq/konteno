@@ -1,64 +1,71 @@
-# CODEX — IMPLEMENT HOME_FINAL ONLY
+# CODEX — IMPLEMENT EXACT HOME_FINAL ONLY
 
 Work in repository `mdbiplob66789-wq/konteno`.
 
-Execute GitHub Issue #6 completely.
+Execute GitHub Issue #6 only.
 
-This task implements ONLY the user-approved KONTENO HOME screen. Do not continue into any other unapproved screen.
+## Mandatory checkout preflight
 
-## Visual source of truth
-Use this repository file as the exact approved visual reference:
+The approved visual is already committed to the CURRENT `origin/main` at:
 
 `codex-references/approved-visuals/HOME_FINAL.webp`
 
-Do not redesign, reinterpret, substitute, or replace that visual. Reproduce its desktop composition as closely as practical.
+A previous Codex checkout was stale and therefore did not contain the file. Do not continue from a stale checkout.
 
-Read first:
-1. `codex-references/approved-visuals/HOME_FINAL.webp`
-2. `codex-references/HOME_FINAL_IMPLEMENTATION.md`
-3. `/AGENTS.md`
-4. `codex-references/TARIFFS_AND_ENERGY_V2.md`
-5. `codex-references/HEADER_NAV_V2.md`
-6. current implementation.
+Before any implementation work:
 
-The approved HOME structure is frozen. Do not redesign it, remove approved sections, add new marketing sections, or change the product hierarchy.
+```bash
+git fetch origin main
+git status --short
+git rev-parse origin/main
+git ls-tree -r --name-only origin/main | grep '^codex-references/approved-visuals/HOME_FINAL.webp$'
+```
 
-Required HOME structure:
+Read `codex-references/HOME_FINAL_CHECKOUT_GUARD.md` and synchronize the clean task branch with current `origin/main` if needed. Then verify:
+
+```bash
+test -f codex-references/approved-visuals/HOME_FINAL.webp
+```
+
+Only after the file is present, open and visually inspect it.
+
+## Scope
+
+Implement ONLY the user-approved KONTENO HOME screen shown in `HOME_FINAL.webp`.
+
+Do not create or redesign Dashboard, Idea, Image, Video, Editor, Projects, Profile, Billing, Auth, Onboarding, theme switching, or any other unapproved screen.
+
+The approved HOME structure is frozen. Reproduce it rather than interpreting it.
+
+Critical requirements:
 - aligned KONTENO logo;
-- icon+label navigation: Идея / Видео / Изображение / Редактор;
-- notifications, `38 000 ⚡`, avatar;
-- approved hero and floating widgets;
-- exactly four product cards;
+- header navigation with icons: `Идея / Видео / Изображение / Редактор` distributed across the center;
+- notification control, `38 000 ⚡`, avatar;
+- approved hero and floating elements;
+- exactly four product cards below hero;
 - `Лучшие работы` with exactly three approved showcase items;
-- DO NOT restore `Что можно сделать в KONTENO`;
-- tariffs in order Start / Creator / Pro / Studio, Creator recommended;
-- Start: 990 ₽ / мес + 8 000 ⚡ / мес;
-- Creator: 2 490 ₽ / мес + 25 000 ⚡ / мес;
-- Pro: 4 990 ₽ / мес + 60 000 ⚡ / мес;
-- Studio: 9 990 ₽ / мес + 150 000 ⚡ / мес;
-- compact continuous Energy calculator, never fixed packages;
-- optically centered `Единый баланс` block;
-- Energy formatting amount first, lightning second;
-- final lavender CTA with rocket visual.
+- do NOT restore `Что можно сделать в KONTENO`;
+- four tariffs in approved order: Start / Creator / Pro / Studio;
+- Creator is recommended;
+- Start: `990 ₽ / мес`, `8 000 ⚡ / мес`;
+- Creator: `2 490 ₽ / мес`, `25 000 ⚡ / мес`;
+- Pro: `4 990 ₽ / мес`, `60 000 ⚡ / мес`;
+- Studio: `9 990 ₽ / мес`, `150 000 ⚡ / мес`;
+- compact continuous Energy calculator, never fixed top-up packages;
+- `Единый баланс` optically centered;
+- Energy format always amount first, lightning second;
+- final lavender CTA exactly follows the reference hierarchy.
 
-Keep tariff prices and monthly Energy allowances in one central config. Never expose `T`, token/tokens or токен/токены.
-
-Preserve useful existing working navigation/state behavior only where it does not conflict with HOME_FINAL. Do not fake payment success or unsupported provider behavior.
-
-Responsive adaptation is required for desktop/tablet/mobile, but preserve the approved desktop hierarchy.
-
-Do not implement or redesign Dashboard, Idea workspace, Image workspace, Video workspace, Editor workspace, Projects, Profile, Auth, Billing, Onboarding or any other unapproved page in this PR.
-
-Before opening PR, render the desktop page and visually compare it section-by-section against `codex-references/approved-visuals/HOME_FINAL.webp`. Continue refining until geometry, hierarchy, spacing, typography, card count and section order match closely.
+Never expose `T`, `token`, `tokens`, `токен`, `токены` in user-facing UI.
 
 After implementation:
-- run available lint/tests/syntax checks;
-- run `git diff --check`;
-- verify only intentional files changed;
-- do a visual refinement pass;
-- open ONE fresh PR to `main` for HOME_FINAL only;
-- do not reuse rejected PR #7.
+1. render desktop HOME;
+2. compare it directly to `HOME_FINAL.webp` section by section;
+3. refine spacing, sizes, typography, card geometry and alignment;
+4. verify tablet/mobile adaptation without changing desktop hierarchy;
+5. run available tests/lint/syntax;
+6. run `git diff --check`;
+7. inspect `git diff --name-only` and confirm no unrelated screens were redesigned;
+8. open ONE fresh PR to `main` for HOME_FINAL only.
 
-Return: HOME MATCH / RESPONSIVE / FUNCTIONAL / TESTS / GIT / BLOCKERS.
-
-Start implementation now.
+Do not reuse rejected PR #7.
