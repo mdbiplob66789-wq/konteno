@@ -1,5 +1,30 @@
 # KONTENO — Codex project instructions
 
+## ACTIVE TASK OVERRIDE — Issue #6 / HOME_FINAL
+
+For the current HOME_FINAL implementation task, this override takes precedence over any older or broader product instructions later in this file.
+
+Current task scope is HOME ONLY.
+
+Mandatory literal visual sources:
+1. `codex-references/approved-visuals/HOME_FINAL.webp`
+2. `codex-references/home-final/REFERENCE_BOARD.html`
+3. `codex-references/home-final/REFERENCE_PACK.md`
+4. `codex-references/home-final/CODEX_LITERAL_MATCH.md`
+
+For Issue #6:
+- do NOT implement or redesign Dashboard, Idea/Image/Video/Editor workspaces, Projects, Profile, Billing, Auth, Onboarding, theme switching or any other screen;
+- do NOT restore `Что можно сделать в KONTENO` or any older landing sections not present in HOME_FINAL;
+- do NOT add a Light/Dark control to HOME;
+- Energy top-up on HOME is an arbitrary-RUB continuous calculator, NOT fixed packages;
+- Best Works must visually match the approved car / mountain lake / fitness previews; invented CSS art is rejected;
+- `HOME_FINAL.webp` is the literal visual target, not inspiration;
+- derived production assets may be cropped from HOME_FINAL using coordinates in `REFERENCE_PACK.md`, but the approved baseline file itself remains read-only.
+
+When this active task conflicts with an older rule below, this ACTIVE TASK OVERRIDE wins.
+
+---
+
 Work only inside the EXISTING KONTENO repository. Do not create a replacement app and do not migrate frameworks without a real technical reason.
 
 ## FIRST STEP — mandatory visual/product audit
@@ -26,7 +51,7 @@ The approved image baseline is READ-ONLY for Codex implementation tasks. Do not 
 - `03_landing_finish.webp` — approved formats section, final CTA and full UX screenboard/composition guidance.
 - `04_product_tabs.webp` — current Idea page to improve, product/capability cards, and Video / animate-photo workflow direction.
 - `05_purchase.webp` — purchase-page interaction references. Syntx is UX/layout logic ONLY; never copy its brand, dark palette or orange CTA. The dark Energy reference is future Dark Theme only and may contain obsolete package numbers.
-- `06_design_showcase.webp` — KONTENO design system, showcase direction and creative-format visual language.
+- `06_design_showcase.webp` — approved design-system, showcase and creative-format visual language.
 - `07_exact_logo.webp` — exact KONTENO logo reference. Never replace it with a generic square containing the letter `K`.
 - `FULL_SITE_BLUEPRINT.html` — complete KONTENO screenboard for Landing, Dashboard, Idea, Image, Video, Editor, Projects, Energy, Profile, Auth and critical system states.
 - `FULL_PRODUCT_DESIGN_SPEC.md` — detailed page structure, responsive rules, states, typography, palette, interactions and acceptance criteria.
