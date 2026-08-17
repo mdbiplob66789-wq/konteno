@@ -1,0 +1,13 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync('app.js','utf8').split("const pages=")[0]+';module.exports={TARIFFS,ENERGY_TOPUP_CONFIG,formatEnergy,topupQuote,minimumRubForEnergy,monthlyTariffCredit};';
+const sandbox={module:{exports:{}},Intl};vm.runInNewContext(source,sandbox);
+const {TARIFFS,ENERGY_TOPUP_CONFIG,formatEnergy,topupQuote,minimumRubForEnergy,monthlyTariffCredit}=sandbox.module.exports;
+assert.strictEqual(formatEnergy(38000),'38 000 ⚡');assert.ok(!formatEnergy(1300).startsWith('⚡'));
+assert.deepStrictEqual(Array.from(TARIFFS,t=>[t.name,t.monthlyRub,t.monthlyEnergy]),[['Start',990,8000],['Creator',2490,25000],['Pro',4990,60000],['Studio',9990,150000]]);assert.strictEqual(TARIFFS.filter(t=>t.recommended)[0].name,'Creator');assert.strictEqual(monthlyTariffCredit('creator'),25000);
+assert.strictEqual(ENERGY_TOPUP_CONFIG.energyPerRub,10);
+assert.deepStrictEqual(JSON.parse(JSON.stringify([499,500,1000,2500,5000].map(v=>topupQuote(v).bonusPercent))),[0,5,10,15,20]);
+assert.strictEqual(topupQuote(1000).finalEnergy,11000);assert.strictEqual(minimumRubForEnergy(11300),1028);assert.ok(topupQuote(minimumRubForEnergy(11300)).finalEnergy>=11300);
+const html=fs.readFileSync('index.html','utf8');for(const page of ['dashboard','idea','video','image','editor','projects','profile','settings','subscription','payments','notifications','auth','onboarding'])assert.ok(html.includes(`id="${page}"`));
+assert.ok(html.includes('id="topupInput"')&&html.includes('id="topupSlider"'));assert.ok(!html.includes('id="purchasePackages"'));assert.ok(!/\d[\s ]+T\b|токен/i.test(html));
+assert.ok(html.includes('KONTENO —<br>твой личный'));assert.ok(html.includes('От идеи до готового контента — в одном месте.'));assert.strictEqual((html.match(/class="work-preview/g)||[]).length,3);assert.ok(!html.includes('Что можно сделать в KONTENO'));assert.ok(html.includes('id="homeTopupInput"')&&html.includes('id="homeTopupSlider"'));
+console.log('KONTENO product and Energy calculator tests passed');
