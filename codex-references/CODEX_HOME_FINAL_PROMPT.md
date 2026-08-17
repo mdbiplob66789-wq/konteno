@@ -6,34 +6,59 @@ Execute GitHub Issue #6 completely.
 
 This task implements ONLY the user-approved KONTENO HOME screen. Do not continue into any other unapproved screen.
 
+## Visual source of truth
+Use this repository file as the exact approved visual reference:
+
+`codex-references/approved-visuals/HOME_FINAL.webp`
+
+Do not redesign, reinterpret, substitute, or replace that visual. Reproduce its desktop composition as closely as practical.
+
 Read first:
-1. `codex-references/HOME_FINAL_IMPLEMENTATION.md`
-2. `/AGENTS.md`
-3. `codex-references/TARIFFS_AND_ENERGY_V2.md`
-4. `codex-references/HEADER_NAV_V2.md`
-5. current implementation.
+1. `codex-references/approved-visuals/HOME_FINAL.webp`
+2. `codex-references/HOME_FINAL_IMPLEMENTATION.md`
+3. `/AGENTS.md`
+4. `codex-references/TARIFFS_AND_ENERGY_V2.md`
+5. `codex-references/HEADER_NAV_V2.md`
+6. current implementation.
 
 The approved HOME structure is frozen. Do not redesign it, remove approved sections, add new marketing sections, or change the product hierarchy.
 
-Implement the HOME exactly according to `HOME_FINAL_IMPLEMENTATION.md`: aligned header/logo, icon+label product navigation, approved hero, four product cards, `Лучшие работы`, four tariff cards Start/Creator/Pro/Studio, compact continuous Energy calculator preview, optically centered unified balance block, and final lavender CTA.
+Required HOME structure:
+- aligned KONTENO logo;
+- icon+label navigation: Идея / Видео / Изображение / Редактор;
+- notifications, `38 000 ⚡`, avatar;
+- approved hero and floating widgets;
+- exactly four product cards;
+- `Лучшие работы` with exactly three approved showcase items;
+- DO NOT restore `Что можно сделать в KONTENO`;
+- tariffs in order Start / Creator / Pro / Studio, Creator recommended;
+- Start: 990 ₽ / мес + 8 000 ⚡ / мес;
+- Creator: 2 490 ₽ / мес + 25 000 ⚡ / мес;
+- Pro: 4 990 ₽ / мес + 60 000 ⚡ / мес;
+- Studio: 9 990 ₽ / мес + 150 000 ⚡ / мес;
+- compact continuous Energy calculator, never fixed packages;
+- optically centered `Единый баланс` block;
+- Energy formatting amount first, lightning second;
+- final lavender CTA with rocket visual.
 
-Keep all tariff prices and monthly Energy allowances in one central config. Currency must be displayed as `38 000 ⚡`, with the lightning AFTER the number. Never expose `T`, token/tokens or токен/токены.
+Keep tariff prices and monthly Energy allowances in one central config. Never expose `T`, token/tokens or токен/токены.
 
-Energy top-up is a continuous calculator, never four fixed packages. Use the authoritative central Energy calculation helper/config rather than hard-coding any inconsistent visual example.
-
-Preserve useful existing working navigation/state behavior, but replace old HOME visual structure where it conflicts with the approved spec. Do not fake payment success or unsupported provider behavior.
+Preserve useful existing working navigation/state behavior only where it does not conflict with HOME_FINAL. Do not fake payment success or unsupported provider behavior.
 
 Responsive adaptation is required for desktop/tablet/mobile, but preserve the approved desktop hierarchy.
 
-Do not touch unrelated screens except for minimal shared-component changes required for HOME. Do not proactively redesign Idea, Image, Video, Editor, Projects, Dashboard, Profile, Auth, standalone Tariffs or standalone Energy pages.
+Do not implement or redesign Dashboard, Idea workspace, Image workspace, Video workspace, Editor workspace, Projects, Profile, Auth, Billing, Onboarding or any other unapproved page in this PR.
+
+Before opening PR, render the desktop page and visually compare it section-by-section against `codex-references/approved-visuals/HOME_FINAL.webp`. Continue refining until geometry, hierarchy, spacing, typography, card count and section order match closely.
 
 After implementation:
 - run available lint/tests/syntax checks;
 - run `git diff --check`;
 - verify only intentional files changed;
-- do one visual refinement pass against HOME_FINAL requirements;
-- open ONE clean PR to `main` for HOME_FINAL only.
+- do a visual refinement pass;
+- open ONE fresh PR to `main` for HOME_FINAL only;
+- do not reuse rejected PR #7.
 
-Return a concise report with: HOME MATCH / RESPONSIVE / FUNCTIONAL / TESTS / GIT / BLOCKERS.
+Return: HOME MATCH / RESPONSIVE / FUNCTIONAL / TESTS / GIT / BLOCKERS.
 
 Start implementation now.
