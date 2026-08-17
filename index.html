@@ -1,173 +1,329 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KONTENO — AI для контента</title><style>
-:root{--p:#7c3aed;--p2:#a855f7;--l:#f5f1ff;--d:#18112e;--m:#6e6680;--b:#ebe6f4;--w:#fff;--g:#f8f7fb}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--d);background:var(--g)}button,input,textarea{font:inherit}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(124,58,237,.3);outline-offset:2px}.hide{display:none!important}.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:-.7px;color:var(--d);text-decoration:none;border:0;background:transparent;padding:0;cursor:pointer}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--p2),#5b21b6);display:grid;place-items:center;color:#fff;font-weight:900}.top{height:70px;background:#fff;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:20}.top nav{display:flex;gap:24px;align-items:center}.top a{text-decoration:none;color:var(--m);font-size:14px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.22)}.secondary{background:#fff;color:var(--p);border:1px solid #d9ccf8}.landing{max-width:1180px;margin:auto;padding:76px 32px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}.tag{display:inline-flex;padding:7px 11px;border-radius:999px;background:var(--l);color:var(--p);font-weight:800;font-size:12px}.hero h1{font-size:56px;line-height:1.02;letter-spacing:-2.4px;margin:18px 0}.hero h1 span{background:linear-gradient(135deg,var(--p),var(--p2));-webkit-background-clip:text;color:transparent}.hero p{color:var(--m);font-size:18px;line-height:1.65}.actions{display:flex;gap:12px;margin:26px 0}.trust{display:flex;gap:18px;flex-wrap:wrap;color:var(--m);font-size:13px}.demo{background:#fff;border:1px solid var(--b);border-radius:24px;box-shadow:0 24px 70px rgba(56,30,100,.11);padding:20px}.fake{border-radius:16px;background:#faf9fd;padding:18px}.fake h3{margin:4px 0 16px}.fake-input{background:#fff;border:1px solid var(--b);border-radius:12px;padding:15px;color:#7c748b}.chips{display:flex;gap:8px;margin:14px 0}.chip{font-size:11px;padding:6px 8px;border-radius:8px;background:var(--l);color:var(--p)}.fakeprice{display:flex;justify-content:space-between;align-items:center}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px}.feature{background:#fff;border:1px solid var(--b);border-radius:18px;padding:22px}.feature b{font-size:16px}.feature p{color:var(--m);font-size:14px;line-height:1.5}.studio{display:none;min-height:100vh}.shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{background:#fff;border-right:1px solid var(--b);padding:24px 18px;display:flex;flex-direction:column;justify-content:space-between;position:fixed;inset:0 auto 0 0;width:230px}.nav{display:grid;gap:6px;margin-top:28px}.nav button{display:flex;align-items:center;gap:10px;border:0;background:transparent;padding:11px 12px;border-radius:11px;color:var(--m);cursor:pointer;text-align:left}.nav button.active{background:var(--l);color:var(--p);font-weight:800}.wallet{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:15px;border-radius:15px}.wallet small{opacity:.8}.wallet strong{display:block;font-size:20px;margin:4px 0}.wallet button{width:100%;margin-top:10px;background:#fff;color:var(--p);border:0;border-radius:9px;padding:8px;font-weight:800}.main{grid-column:2;padding:44px;max-width:1250px;width:100%}.page h1{font-size:34px;letter-spacing:-1px;margin:0}.page>p{color:var(--m);margin:7px 0 24px}.promptbox{background:#fff;border:1px solid var(--b);border-radius:18px;padding:16px}.promptbox textarea{width:100%;min-height:92px;border:0;outline:0;resize:none;font-size:16px}.promptfoot{display:flex;justify-content:flex-end}.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:16px}.task{background:#fff;border:1px solid var(--b);border-radius:16px;padding:20px;cursor:pointer;transition:.2s}.task:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(54,31,88,.07);border-color:#d6c6f6}.task i{font-style:normal;font-size:24px}.task h3{margin:12px 0 5px}.task p{margin:0;color:var(--m);font-size:13px}.card{background:#fff;border:1px solid var(--b);border-radius:18px;padding:20px}.animate{display:grid;grid-template-columns:1fr 1.15fr;gap:16px}.upload{min-height:470px;border:1.5px dashed #d8cef0;border-radius:16px;display:grid;place-items:center;text-align:center;overflow:hidden;position:relative;background:#fbfaff}.upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.upload input{position:absolute;inset:0;opacity:0;cursor:pointer}.upload strong{display:block;margin:10px 0}.upload p{font-size:13px;color:var(--m)}label{font-size:13px;font-weight:800}.field{margin-bottom:17px}.field textarea{width:100%;height:96px;margin-top:8px;border:1px solid var(--b);border-radius:12px;padding:12px;outline:0}.field textarea:focus{border-color:#b794f6}.suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.suggestions button{font-size:11px;border:0;padding:7px 9px;border-radius:8px;background:var(--l);color:var(--p);cursor:pointer}.segments,.qualities{display:flex;gap:8px;margin-top:8px}.segments button,.qualities button{flex:1;border:1px solid var(--b);background:#fff;border-radius:11px;padding:10px;cursor:pointer}.segments button.sel,.qualities button.sel{border-color:var(--p);background:var(--l);color:var(--p);font-weight:800}.qualities button{display:flex;flex-direction:column;gap:4px}.qualities small{font-size:10px;color:var(--m)}.price{display:flex;justify-content:space-between;align-items:center;background:#faf8ff;border-radius:12px;padding:14px;margin:16px 0}.price strong{font-size:20px}.full{width:100%;padding:14px}.progress{max-width:620px;margin:60px auto;text-align:center}.orb{width:128px;height:128px;border-radius:50%;margin:10px auto 20px;display:grid;place-items:center;background:conic-gradient(var(--p) var(--deg),#eee 0);position:relative}.orb:after{content:"";position:absolute;width:99px;height:99px;border-radius:50%;background:white}.orb b{z-index:1;font-size:25px}.steps{display:grid;gap:8px;text-align:left;margin-top:20px}.step{padding:10px 12px;background:#faf8ff;border-radius:10px;color:var(--m)}.step.done{color:var(--p);font-weight:700}.works{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.work{padding:0;overflow:hidden}.thumb{height:180px;background:linear-gradient(135deg,#ddd3f6,#9c7bea);display:grid;place-items:center;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.workbody{padding:14px}.workbody p{color:var(--m);font-size:12px}.packs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.pack{text-align:center}.pack.reco{border:2px solid var(--p)}.pack h2{margin:6px}.pack .tok{font-weight:900;color:var(--p);margin:10px 0}.notice{padding:12px 14px;border-radius:11px;background:#eefbf4;color:#18794e;margin-bottom:14px}.assistant{max-width:760px;margin:auto}.ideas{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ideas button{text-align:left;background:#fff;border:1px solid var(--b);border-radius:13px;padding:15px;cursor:pointer}.answer{margin-top:14px}.modal{position:fixed;inset:0;background:rgba(20,13,35,.45);display:grid;place-items:center;z-index:50}.modalbox{background:#fff;border-radius:18px;padding:22px;width:min(460px,92vw)}.modalrow{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee}.modalactions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.mobilebar{display:none}.toast{position:fixed;right:22px;bottom:22px;z-index:70;max-width:360px;padding:13px 16px;border-radius:12px;background:var(--d);color:#fff;box-shadow:0 12px 35px rgba(24,17,46,.24)}.error{color:#b42318;background:#fff1f0;padding:10px 12px;border-radius:10px;margin:0 0 12px}.btn:disabled{opacity:.55;cursor:not-allowed}@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:44px}.features,.grid6,.works,.packs{grid-template-columns:1fr 1fr}.side{display:none}.shell{display:block}.main{padding:24px}.animate{grid-template-columns:1fr}.top nav a{display:none}.studio{padding-bottom:68px}.mobilebar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;z-index:30;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--b);padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))}.mobilebar button{border:0;background:transparent;color:var(--m);font-size:11px;padding:6px 2px;display:grid;gap:3px;place-items:center}.mobilebar button span{font-size:20px}.mobilebar button.active{color:var(--p);font-weight:800}}@media(max-width:560px){.landing{padding:44px 18px}.top{padding:0 18px}.top .btn{padding:10px 12px}.hero h1{font-size:38px}.actions{align-items:stretch;flex-direction:column}.features,.grid6,.works,.packs,.ideas{grid-template-columns:1fr}.main{padding:20px 16px}.qualities{flex-direction:column}.upload{min-height:330px}.modal{align-items:end}.modalbox{width:100%;border-radius:18px 18px 0 0;padding-bottom:calc(22px + env(safe-area-inset-bottom))}.toast{left:14px;right:14px;bottom:82px}}
-</style></head><body>
-<header class="top" id="top"><a class="logo" href="#" aria-label="KONTENO — на главную"><span class="mark">K</span>KONTENO</a><nav><a href="#features">Возможности</a><a href="#pricing" onclick="openStudio('balance');return false">Цены</a><button class="btn primary" onclick="openStudio()">Открыть студию</button></nav></header>
-<section class="landing" id="landing"><div class="hero"><div><span class="tag">✦ AI для соцсетей без сложности</span><h1>Создавай контент. <span>KONTENO сделает AI понятным.</span></h1><p>Видео, изображения и редактирование в одном месте. Пополняй токены рублями с российской карты — дальше KONTENO сам подберёт выгодный AI под задачу.</p><div class="actions"><button class="btn primary" onclick="openStudio()">Начать бесплатно →</button><button class="btn secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Как это работает</button></div><div class="trust"><span>✓ Оплата картами РФ</span><span>✓ Единый баланс токенов</span><span>✓ Без сложного выбора моделей</span></div></div><div class="demo"><div class="fake"><h3>Что хочешь создать?</h3><div class="fake-input">Оживи фото: человек смотрит в камеру и мягко улыбается…</div><div class="chips"><span class="chip">Фото → видео</span><span class="chip">9:16</span><span class="chip">⚖️ Оптимально</span></div><div class="fakeprice"><span><small>Стоимость</small><br><b>1 300 токенов</b></span><button class="btn primary" onclick="openStudio('animate')">Создать</button></div></div></div></div><div class="features" id="features"><div class="feature"><b>🎬 Создавай</b><p>Видео и изображения для Reels, TikTok, Shorts, рекламы и постов.</p></div><div class="feature"><b>✨ Редактируй словами</b><p>Загрузи файл и просто напиши, что нужно изменить.</p></div><div class="feature"><b>💳 Плати из России</b><p>Пополняй внутренние токены рублями и используй во всех инструментах.</p></div></div></section>
-<section class="studio" id="studio"><div class="shell"><aside class="side"><div><button class="logo" type="button" onclick="goHome()" aria-label="KONTENO — на главную"><span class="mark">K</span>KONTENO</button><div class="nav"><button data-page="home" onclick="showPage('home')">✦ Создать</button><button data-page="works" onclick="showPage('works')">▦ Мои работы</button><button data-page="assistant" onclick="showPage('assistant')">💡 Помощник</button></div></div><div><div class="wallet"><small>Баланс</small><strong id="sideBalance">10 500 T</strong><button onclick="showPage('balance')">Пополнить</button></div></div></aside><main class="main">
-<div class="page" id="home"><h1>Что хочешь создать?</h1><p>Опиши идею или выбери простое действие</p><div class="promptbox"><textarea id="homePrompt" placeholder="Например: сделай короткий ролик для Reels про кота, который работает в офисе…"></textarea><div class="promptfoot"><button class="btn primary" onclick="continuePrompt()">Продолжить →</button></div></div><div class="grid6"><div class="task" role="button" tabindex="0" onclick="showPage('animate')"><i>🎬</i><h3>Оживить фото</h3><p>Добавь движение фотографии</p></div><div class="task" role="button" tabindex="0" onclick="startTask('Создать видео по описанию')"><i>✦</i><h3>Создать видео</h3><p>Ролик из текста или изображения</p></div><div class="task" role="button" tabindex="0" onclick="startTask('Создать изображение по описанию')"><i>🖼</i><h3>Создать изображение</h3><p>Картинка по описанию</p></div><div class="task" role="button" tabindex="0" onclick="startTask('Изменить фотографию')"><i>✨</i><h3>Изменить фото</h3><p>Напиши, что нужно поменять</p></div><div class="task" role="button" tabindex="0" onclick="showPage('assistant')"><i>💡</i><h3>Придумать идею</h3><p>Hooks, сценарии и идеи</p></div><div class="task" role="button" tabindex="0" onclick="showPage('works')"><i>▦</i><h3>Мои работы</h3><p>Все результаты в одном месте</p></div></div></div>
-<div class="page hide" id="animate"><h1>Оживить фото</h1><p>Загрузи изображение и простыми словами опиши движение.</p><div id="animateForm" class="animate"><div class="card"><div class="upload" id="upload"><div><div style="font-size:34px">🖼</div><strong>Загрузи фото</strong><p>JPG, PNG или WEBP · до 15 МБ</p></div><input type="file" accept="image/jpeg,image/png,image/webp" id="file" onchange="previewFile(event)"></div></div><div class="card"><div class="field"><label>Что должно произойти?</label><textarea id="motion" placeholder="Например: человек поворачивается к камере и мягко улыбается"></textarea><div class="suggestions"><button onclick="addPrompt('Смотрит в камеру')">Смотрит в камеру</button><button onclick="addPrompt('Мягко улыбается')">Мягко улыбается</button><button onclick="addPrompt('Лёгкое движение камеры')">Движение камеры</button></div></div><div class="field"><label>Длительность</label><div class="segments"><button class="sel" onclick="pickDuration(this,5)">5 сек.</button><button onclick="pickDuration(this,8)">8 сек.</button><button onclick="pickDuration(this,10)">10 сек.</button></div></div><div class="field"><label>Качество</label><div class="qualities"><button onclick="pickQuality(this,'economy')"><b>💰 Выгодно</b><small>Дешевле</small></button><button class="sel" onclick="pickQuality(this,'optimal')"><b>⚖️ Оптимально</b><small>Рекомендуем</small></button><button onclick="pickQuality(this,'maximum')"><b>✨ Максимум</b><small>Лучшее качество</small></button></div></div><div class="price"><span>Стоимость<br><strong id="price">1 300 T</strong></span><span>Баланс<br><b id="miniBalance">10 500 T</b></span></div><button class="btn primary full" onclick="confirmGeneration()">Создать за <span id="priceBtn">1 300</span> токенов</button></div></div><div id="generation" class="card progress hide"><div class="orb" id="orb" style="--deg:0deg"><b id="pct">0%</b></div><h2>Создаём твоё видео</h2><p style="color:var(--m)">KONTENO подбирает подходящий AI и готовит результат.</p><div class="steps" id="steps"></div></div><div id="result" class="animate hide"><div class="card"><div class="thumb" style="height:420px" id="resultThumb"><span style="font-size:42px">▶</span></div><div class="actions"><button class="btn primary" onclick="downloadResult()">Скачать превью</button><button class="btn secondary" onclick="editAgain()">Изменить движение</button></div></div><div class="card"><span class="tag">✓ Готово</span><h2>Видео создано</h2><p style="color:var(--m)">После результата KONTENO предлагает только логичные следующие действия.</p><button class="btn secondary" onclick="showPage('works')">Открыть «Мои работы»</button></div></div></div>
-<div class="page hide" id="works"><h1>Мои работы</h1><p>Все созданные результаты в одном месте.</p><div class="works" id="worksGrid"><div class="card" style="grid-column:1/-1;text-align:center"><h3>Здесь появятся твои работы</h3><p style="color:var(--m)">Создай первый контент — результат автоматически сохранится.</p><button class="btn primary" onclick="showPage('animate')">Оживить фото</button></div></div></div>
-<div class="page hide" id="assistant"><div class="assistant"><span class="tag">💡 CONTENT ASSISTANT</span><h1 style="margin-top:14px">Чем помочь с контентом?</h1><p>Только идеи, сценарии и действия, ведущие к созданию контента.</p><div class="ideas"><button onclick="idea(this)">Придумать идею для Reels</button><button onclick="idea(this)">Написать hook для TikTok</button><button onclick="idea(this)">Улучшить мой сценарий</button><button onclick="idea(this)">Придумать описание поста</button></div><div class="promptbox" style="margin-top:12px"><textarea id="assistantInput" placeholder="Например: хочу вирусный ролик про собаку в офисе…"></textarea><div class="promptfoot"><button class="btn primary" onclick="assistantGo()">Продолжить →</button></div></div><div id="assistantAnswer" class="card answer hide"></div></div></div>
-<div class="page hide" id="balance"><h1>Баланс</h1><p>Пополняй токены рублями и используй во всех инструментах KONTENO.</p><div class="card" style="margin-bottom:14px"><small>Текущий баланс</small><h2 id="bigBalance">10 500 T</h2></div><div id="payNotice" class="notice hide"></div><div class="packs"><div class="card pack"><p>Пополнить на</p><h2>500 ₽</h2><div class="tok">5 000 T</div><button class="btn secondary" onclick="buy(5000)">Выбрать</button></div><div class="card pack reco"><p>Пополнить на</p><h2>1 000 ₽</h2><div class="tok">10 500 T · +5%</div><button class="btn primary" onclick="buy(10500)">Выбрать</button></div><div class="card pack"><p>Пополнить на</p><h2>2 500 ₽</h2><div class="tok">27 500 T · +10%</div><button class="btn secondary" onclick="buy(27500)">Выбрать</button></div><div class="card pack"><p>Пополнить на</p><h2>5 000 ₽</h2><div class="tok">57 500 T · +15%</div><button class="btn secondary" onclick="buy(57500)">Выбрать</button></div></div></div>
-</main></div><nav class="mobilebar" aria-label="Навигация студии"><button data-page="home" onclick="showPage('home')"><span>✦</span>Создать</button><button data-page="works" onclick="showPage('works')"><span>▦</span>Работы</button><button data-page="assistant" onclick="showPage('assistant')"><span>💡</span>Помощник</button><button data-page="balance" onclick="showPage('balance')"><span>◉</span>Баланс</button></nav></section>
-<div class="toast hide" id="toast" role="status" aria-live="polite"></div>
-<div class="modal hide" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this)closeModal()"><div class="modalbox"><h3 id="modalTitle">Создать видео?</h3><p style="color:var(--m)">Проверь главное. Технические параметры KONTENO выберет сам.</p><div class="modalrow"><span>Длительность</span><b id="mDur"></b></div><div class="modalrow"><span>Режим</span><b id="mQual"></b></div><div class="modalrow"><span>Стоимость</span><b id="mPrice"></b></div><div class="modalactions"><button class="btn secondary" onclick="closeModal()">Назад</button><button class="btn primary" onclick="startGeneration()">Создать</button></div></div></div>
-<script>
-const pages = ['home', 'animate', 'works', 'assistant', 'balance'];
-const base = {economy: 800, optimal: 1300, maximum: 3050};
-let balance = Number(localStorage.getItem('konteno_balance')) || 10500;
-let duration = 5;
-let quality = 'optimal';
-let imageData = '';
-let works = [];
-let toastTimer;
-try { works = JSON.parse(localStorage.getItem('konteno_works') || '[]'); } catch { works = []; }
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KONTENO — личный AI-помощник для создания контента">
+  <title>KONTENO — AI-помощник в создании контента</title>
+  <style>
+    :root {
+      --background: #fbfaff;
+      --surface: #fff;
+      --surface-soft: #f7f3ff;
+      --surface-strong: #efe8ff;
+      --text: #171321;
+      --muted: #746c81;
+      --border: #ebe5f3;
+      --primary: #7c3aed;
+      --primary-deep: #6524cf;
+      --primary-light: #a855f7;
+      --success: #22a447;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --shadow: 0 18px 48px rgba(63, 38, 98, .08);
+      --shadow-soft: 0 9px 28px rgba(77, 46, 119, .07);
+      --page: 1062px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 3px solid rgba(124, 58, 237, .24);
+      outline-offset: 3px;
+    }
+    .icon { width: 18px; height: 18px; display: block; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-fill { fill: currentColor; stroke: none; }
+    .energy-amount { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+    .energy-amount .icon { width: .82em; height: .82em; color: var(--primary); fill: currentColor; stroke: currentColor; }
+    .site-header {
+      height: 70px;
+      display: grid;
+      grid-template-columns: 245px minmax(420px, 1fr) 245px;
+      align-items: center;
+      padding: 0 max(30px, calc((100vw - 1122px) / 2 + 30px));
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid rgba(232, 225, 241, .85);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 9px; color: var(--text); text-decoration: none; width: max-content; }
+    .brand-mark { width: 31px; height: 31px; filter: drop-shadow(0 5px 8px rgba(124,58,237,.2)); }
+    .brand-name { font-size: 18px; line-height: 1; font-weight: 850; letter-spacing: -.55px; }
+    .product-nav { height: 100%; display: grid; grid-template-columns: repeat(4, 1fr); align-items: stretch; }
+    .nav-link { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; color: #5f586b; text-decoration: none; font-size: 13px; font-weight: 650; }
+    .nav-link:hover { color: var(--primary); }
+    .nav-link:first-child { color: var(--primary); }
+    .nav-link:first-child::after { content: ""; position: absolute; left: 30%; right: 30%; bottom: -1px; height: 2px; border-radius: 2px; background: var(--primary); }
+    .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+    .icon-button { width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: #655e70; cursor: pointer; position: relative; }
+    .icon-button:hover { background: var(--surface-soft); color: var(--primary); }
+    .unread { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--primary-light); right: 8px; top: 8px; box-shadow: 0 0 0 2px #fff; }
+    .header-balance { min-height: 36px; padding: 0 13px; display: inline-flex; align-items: center; border: 1px solid #e6ddf2; border-radius: 999px; background: #faf7ff; color: #332943; text-decoration: none; font-size: 13px; font-weight: 800; }
+    .avatar-button { border: 0; background: transparent; padding: 0; display: flex; align-items: center; gap: 5px; cursor: pointer; color: var(--muted); }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle at 52% 34%, #fff 0 15%, transparent 16%), radial-gradient(circle at 50% 40%, #d3b9ee 0 22%, transparent 23%), radial-gradient(circle at 50% 93%, #7551a7 0 45%, #b393db 46% 59%, #eee5fa 60%); box-shadow: inset 0 0 0 1px rgba(92,57,139,.11); }
+    main { overflow: hidden; }
+    .wrap { width: min(var(--page), calc(100% - 60px)); margin-inline: auto; }
+    .hero {
+      min-height: 280px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: radial-gradient(ellipse 44% 75% at 50% 50%, rgba(239,228,255,.93), rgba(251,250,255,0) 76%);
+      isolation: isolate;
+    }
+    .hero-copy { position: relative; z-index: 3; max-width: 640px; padding: 32px 20px 26px; }
+    .hero h1 { margin: 0; font-size: clamp(38px, 3.6vw, 45px); line-height: .96; letter-spacing: -2.35px; font-weight: 830; }
+    .hero h1 .accent { color: var(--primary); }
+    .hero p { margin: 14px 0 19px; color: #716a7d; font-size: 14px; }
+    .hero-actions { display: flex; justify-content: center; gap: 9px; }
+    .btn { min-height: 40px; padding: 0 17px; display: inline-flex; justify-content: center; align-items: center; gap: 7px; border: 1px solid transparent; border-radius: 11px; font-weight: 760; font-size: 13px; text-decoration: none; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, #8c55ed, #6d28d9); box-shadow: 0 10px 22px rgba(109,40,217,.2); }
+    .btn-secondary { color: #554b64; background: rgba(255,255,255,.8); border-color: #e2d9ef; }
+    .floating-card { position: absolute; z-index: 2; border: 1px solid rgba(223,212,239,.88); background: rgba(255,255,255,.91); box-shadow: 0 10px 25px rgba(65,38,104,.09); backdrop-filter: blur(8px); }
+    .metric { width: 92px; padding: 9px 10px; border-radius: 12px; text-align: left; }
+    .metric small { display: block; color: #8c8496; font-size: 8px; margin-bottom: 2px; }
+    .metric b { font-size: 14px; letter-spacing: -.3px; }
+    .metric em { color: var(--success); font-style: normal; font-size: 8px; margin-left: 3px; }
+    .metric .pink { color: #ec5c91; }
+    .m-follow { left: calc(50% - 420px); top: 55px; transform: rotate(-3deg); }
+    .m-like { left: calc(50% - 480px); top: 158px; transform: rotate(3deg); }
+    .m-share { left: calc(50% - 360px); top: 224px; transform: rotate(-2deg); }
+    .m-comments { right: calc(50% - 454px); top: 93px; transform: rotate(3deg); }
+    .follow-card { right: calc(50% - 420px); top: 194px; width: 132px; padding: 9px; border-radius: 12px; display: flex; align-items: center; gap: 7px; text-align: left; transform: rotate(-2deg); }
+    .mini-avatar { width: 23px; height: 23px; flex: none; border-radius: 50%; background: linear-gradient(145deg,#e6c8f6,#824db3); }
+    .follow-card b { display: block; font-size: 8px; }.follow-card small { color: #8b8295; font-size: 7px; }
+    .float-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: var(--primary); background: linear-gradient(145deg,#fff,#e7d7ff); box-shadow: 0 10px 18px rgba(91,48,145,.12); position: absolute; z-index: 1; }
+    .float-icon .icon { width: 17px; height: 17px; }
+    .fi-bulb { left: calc(50% - 314px); top: 86px; transform: rotate(-12deg); }
+    .fi-play { right: calc(50% - 334px); top: 39px; transform: rotate(11deg); }
+    .fi-image { right: calc(50% - 307px); top: 232px; transform: rotate(-6deg); }
+    .fi-heart { left: calc(50% - 310px); top: 196px; transform: rotate(10deg); }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 0; }
+    .product-card { min-height: 124px; position: relative; overflow: hidden; padding: 18px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow-soft); color: inherit; text-decoration: none; }
+    .product-card:hover { border-color: #d7c7ed; transform: translateY(-2px); }
+    .product-card h2 { margin: 44px 0 4px; font-size: 15px; letter-spacing: -.3px; }
+    .product-card p { margin: 0; color: var(--muted); font-size: 10px; }
+    .product-art { width: 48px; height: 42px; position: absolute; top: 13px; left: 18px; display: grid; place-items: center; border-radius: 13px; color: var(--primary); background: radial-gradient(circle at 32% 25%,#fff 0 16%,transparent 17%),linear-gradient(145deg,#f8efff,#e5d1ff); box-shadow: 0 9px 15px rgba(109,40,217,.12), inset 0 0 0 1px rgba(124,58,237,.07); transform: rotate(-2deg); }
+    .product-card:nth-child(2) .product-art { background: linear-gradient(145deg,#fff5fb,#ecccf0); color:#aa3c8e; transform: rotate(2deg); }
+    .product-card:nth-child(3) .product-art { background: linear-gradient(145deg,#eff6ff,#cddcf9); color:#5273bd; }
+    .product-card:nth-child(4) .product-art { background: linear-gradient(145deg,#fff8e9,#f2ddae); color:#a56b1d; transform: rotate(2deg); }
+    .product-art .icon { width: 23px; height: 23px; }
+    .section-card { margin-top: 18px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-soft); }
+    .section-head { height: 48px; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .section-head h2 { margin: 0; font-size: 17px; letter-spacing: -.55px; }
+    .text-link { display: inline-flex; align-items: center; gap: 5px; color: var(--primary); text-decoration: none; font-size: 11px; font-weight: 750; }
+    .works { padding-bottom: 18px; }
+    .works-grid { display: grid; grid-template-columns: 312px 211px 190px; gap: 17px; padding: 0 34px; justify-content: start; }
+    .reference-crop { width: 100%; aspect-ratio: var(--cw) / var(--ch); overflow: hidden; position: relative; border-radius: 12px; background: #ddd; box-shadow: 0 8px 18px rgba(29,17,46,.1); }
+    .reference-crop img { position: absolute; width: calc(1122 / var(--cw) * 100%); max-width: none; height: auto; left: 0; top: 0; transform: translate(var(--tx), var(--ty)); transform-origin: left top; }
+    .tariffs { padding: 22px 28px 18px; background: linear-gradient(180deg,#fff 0%,#fdfbff 100%); }
+    .tariff-title { text-align: center; margin-bottom: 17px; }
+    .tariff-title h2 { margin: 0 0 4px; font-size: 22px; letter-spacing: -.8px; }
+    .tariff-title p { margin: 0; color: var(--muted); font-size: 10px; }
+    .tariff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: stretch; }
+    .tariff-card { min-height: 257px; position: relative; display: flex; flex-direction: column; padding: 16px 15px 14px; border: 1px solid #e9e3f0; border-radius: 15px; background: #fff; }
+    .tariff-card.recommended { border: 1.5px solid var(--primary); box-shadow: 0 14px 30px rgba(124,58,237,.13); }
+    .recommended-badge { position: absolute; right: 10px; top: 10px; padding: 4px 7px; border-radius: 999px; color: #fff; background: var(--primary); font-size: 7px; font-weight: 800; }
+    .tariff-card h3 { margin: 0 0 2px; font-size: 14px; }.tariff-for { color: var(--muted); font-size: 8px; }
+    .tariff-price { margin: 10px 0 2px; font-size: 20px; font-weight: 850; letter-spacing: -.7px; }.tariff-price small { font-size: 8px; color: var(--muted); font-weight: 600; letter-spacing: 0; }
+    .tariff-energy { color: var(--primary); font-size: 10px; font-weight: 800; }
+    .tariff-list { list-style: none; padding: 0; margin: 10px 0 13px; display: grid; gap: 6px; color: #5d5668; font-size: 8px; line-height: 1.2; }
+    .tariff-list li { display: flex; gap: 5px; }.tariff-list li::before { content: "✓"; color: var(--primary); font-weight: 900; }
+    .tariff-card .btn { min-height: 31px; margin-top: auto; font-size: 9px; border-radius: 9px; }
+    .tariff-note { margin: 12px 0 0; text-align: center; color: #857d8f; font-size: 8px; }
+    .commerce-grid { display: grid; grid-template-columns: 1.48fr .9fr; gap: 15px; margin-top: 18px; }
+    .topup-card, .wallet-card { min-height: 178px; padding: 20px 22px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-soft); }
+    .topup-card { display: grid; grid-template-columns: 1fr .9fr; gap: 25px; align-items: center; }
+    .topup-card h2, .wallet-card h2 { margin: 0 0 4px; font-size: 17px; letter-spacing: -.5px; }
+    .topup-card .helper { margin: 0 0 13px; color: var(--muted); font-size: 9px; }
+    .amount-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; color: #5e566a; font-size: 9px; font-weight: 700; }
+    .amount-input { height: 34px; width: 100%; border: 1px solid #e3dcec; border-radius: 9px; padding: 0 11px; color: var(--text); font-size: 13px; font-weight: 800; background: #fff; }
+    .slider { width: 100%; height: 4px; margin: 12px 0 13px; appearance: none; border-radius: 999px; background: linear-gradient(to right,var(--primary) 0 var(--progress),#e9e2f1 var(--progress) 100%); }
+    .slider::-webkit-slider-thumb { appearance: none; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 4px solid var(--primary); box-shadow: 0 2px 7px rgba(76,33,126,.18); cursor: pointer; }
+    .slider::-moz-range-thumb { width: 9px; height: 9px; border-radius: 50%; background: #fff; border: 4px solid var(--primary); cursor: pointer; }
+    .topup-card .btn { width: 100%; min-height: 33px; font-size: 9px; border-radius: 9px; }
+    .quote { padding: 14px; border-radius: 13px; background: #f8f4ff; }
+    .quote-row { display: flex; justify-content: space-between; padding: 4px 0; color: var(--muted); font-size: 9px; }
+    .quote-row b { color: var(--text); }.quote-row.total { margin-top: 5px; padding-top: 9px; border-top: 1px solid #e5dcf2; align-items: center; }.quote-row.total b { color: var(--primary); font-size: 15px; }
+    .wallet-card { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 10%,#f2eaff 0,#fff 66%); }
+    .wallet-icon { width: 31px; height: 31px; margin-bottom: 5px; display: grid; place-items: center; color: var(--primary); border-radius: 10px; background: #eee4ff; }.wallet-icon .icon { width: 16px; }
+    .wallet-balance { margin: 4px 0 1px; font-size: 25px; font-weight: 870; letter-spacing: -.8px; }.wallet-card > small { color: var(--muted); font-size: 8px; }
+    .wallet-tools { display: flex; justify-content: center; gap: 9px; margin: 10px 0 9px; }.wallet-tool { display: grid; place-items: center; width: 24px; height: 24px; color: var(--primary); border: 1px solid #e6dbf5; border-radius: 7px; background: #fff; }.wallet-tool .icon { width: 12px; height: 12px; }
+    .final-cta { min-height: 124px; position: relative; margin: 18px auto 24px; display: grid; place-items: center; overflow: hidden; text-align: center; border: 1px solid #e4d9f2; border-radius: 23px; background: radial-gradient(circle at 50% 45%,#fff 0 10%,#f1e7ff 52%,#fbf9ff 100%); box-shadow: var(--shadow-soft); }
+    .cta-copy { position: relative; z-index: 2; padding: 18px 190px; }.cta-copy h2 { margin: 0 0 4px; font-size: 23px; letter-spacing: -.9px; }.cta-copy p { margin: 0 0 10px; color: var(--muted); font-size: 9px; }
+    .cta-copy .btn { min-height: 33px; font-size: 9px; }
+    .cta-object { position: absolute; display: grid; place-items: center; color: var(--primary); background: linear-gradient(145deg,#fff,#d9c1ff); box-shadow: 0 12px 25px rgba(96,48,157,.16); }
+    .rocket { left: 100px; width: 66px; height: 66px; border-radius: 20px; transform: rotate(-11deg); }.rocket .icon { width: 32px; height: 32px; }
+    .media { right: 112px; width: 54px; height: 54px; border-radius: 17px; transform: rotate(9deg); }.media .icon { width: 25px; height: 25px; }
+    .star { position: absolute; color: #a47ae0; font-size: 16px; }.star-a { left: 38px; top: 25px; }.star-b { right: 42px; bottom: 23px; }.star-c { right: 205px; top: 17px; font-size: 10px; }
+    .toast { position: fixed; left: 50%; bottom: 24px; z-index: 60; padding: 12px 18px; color: #fff; background: #241a31; border-radius: 12px; font-size: 13px; box-shadow: 0 15px 40px rgba(25,15,40,.24); transform: translate(-50%, 18px); opacity: 0; pointer-events: none; transition: .22s ease; }
+    .toast.show { transform: translate(-50%,0); opacity: 1; }
+    @media (max-width: 900px) {
+      .site-header { grid-template-columns: 170px 1fr auto; padding-inline: 22px; }.product-nav { grid-column: 2; }.nav-link span { display: none; }.header-balance { padding-inline: 10px; }.avatar-button .chevron { display:none; }
+      .wrap { width: min(720px, calc(100% - 36px)); }.hero { min-height: 310px; }.floating-card { opacity: .82; }.m-like { left: 4%; }.m-follow { left: 10%; }.m-share { left: 14%; }.m-comments { right: 7%; }.follow-card { right: 8%; }.fi-bulb { left: 20%; }.fi-play { right: 20%; }
+      .product-grid, .tariff-grid { grid-template-columns: repeat(2,1fr); }.works-grid { grid-template-columns: 312fr 211fr 190fr; padding-inline: 18px; gap: 10px; }.commerce-grid { grid-template-columns: 1fr 300px; }.topup-card { grid-template-columns: 1fr; gap: 12px; }.topup-card,.wallet-card { min-height: 250px; }.cta-copy { padding-inline: 145px; }.rocket { left: 48px; }.media { right: 52px; }
+    }
+    @media (max-width: 620px) {
+      .site-header { height: 62px; grid-template-columns: 1fr auto; padding-inline: 16px; }.brand-mark { width:29px;height:29px }.brand-name {font-size:17px}.product-nav { position: fixed; left: 0; right: 0; bottom: 0; height: 62px; z-index: 40; grid-column: auto; background: rgba(255,255,255,.96); border-top: 1px solid var(--border); padding-bottom: env(safe-area-inset-bottom); backdrop-filter: blur(14px); }.nav-link { flex-direction: column; gap: 3px; font-size: 9px; }.nav-link span { display: inline; }.nav-link:first-child::after { top: 0; bottom: auto; left: 31%; right: 31%; }.header-actions { gap: 4px; }.icon-button { width:34px;height:34px }.header-balance { min-height: 32px; padding: 0 9px; font-size: 11px; }.avatar { width:32px;height:32px }.wrap { width: calc(100% - 28px); }
+      .hero { min-height: 410px; }.hero-copy { padding: 68px 14px 50px; }.hero h1 { font-size: 40px; letter-spacing: -2px; }.hero p { max-width: 280px; margin-inline: auto; line-height: 1.45; }.hero-actions { flex-direction: column; width: min(260px,100%); margin-inline:auto }.hero-actions .btn { width:100%;min-height:44px }.metric { transform: scale(.8)!important; }.m-follow { top:17px;left:-2px }.m-like { left:-7px;top:277px }.m-share { left:55px;top:350px }.m-comments { right:-9px;top:36px }.follow-card { right:-14px;top:316px;transform:scale(.82) rotate(-2deg) }.fi-bulb { left:12%;top:89px }.fi-play { right:11%;top:109px }.fi-heart,.fi-image { display:none }
+      .product-grid, .tariff-grid { grid-template-columns: 1fr; }.product-card { min-height:112px }.product-card h2 { margin-top:40px }.section-card { margin-top:14px }.section-head { padding-inline:16px }.works-grid { grid-template-columns:1fr; padding:0 14px 14px; }.reference-crop { max-height:none }.tariffs { padding:22px 14px 16px }.tariff-title h2 { font-size:24px }.tariff-grid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 1px 12px; scrollbar-width:none }.tariff-card { min-width:82%; min-height:290px; scroll-snap-align:center; padding:20px }.tariff-card h3 {font-size:18px}.tariff-price{font-size:24px}.tariff-for,.tariff-list,.tariff-energy,.tariff-note{font-size:11px}.tariff-card .btn{min-height:42px;font-size:12px}
+      .commerce-grid { grid-template-columns:1fr }.topup-card,.wallet-card { min-height:unset;padding:22px }.topup-card {grid-template-columns:1fr}.wallet-card {padding-block:26px}.cta-copy { padding:30px 28px 100px }.final-cta {min-height:250px;margin-bottom:80px}.cta-copy h2{font-size:28px}.cta-copy p{font-size:12px;line-height:1.5}.cta-copy .btn{min-height:42px;font-size:12px}.rocket{left:calc(50% - 82px);bottom:20px;width:55px;height:55px}.media{right:calc(50% - 82px);bottom:24px;width:48px;height:48px}.star-c{display:none}
+    }
+    @media (prefers-reduced-motion: reduce) { html {scroll-behavior:auto} *,*::before,*::after {transition-duration:.01ms!important;animation-duration:.01ms!important} }
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs>
+    <linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b65cff"/><stop offset=".52" stop-color="#883de8"/><stop offset="1" stop-color="#5b21b6"/></linearGradient>
+    <symbol id="i-logo" viewBox="0 0 40 40"><path fill="url(#brand-gradient)" d="M4 4.8A3.8 3.8 0 0 1 7.8 1h7.7l8.3 9.3L30.7 3a5.3 5.3 0 0 1 7.6 7.4l-9 9.4 8.1 8.9a5.2 5.2 0 0 1-7.7 7L23.5 29l-7.9 9H4V4.8Z"/><path fill="#fff" d="m12.5 13.2 11.7 6.7-11.7 6.8V13.2Z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8.3 14.8A7 7 0 1 1 15.7 15c-.8.6-.8 1.2-.8 2H9.1c0-.9 0-1.5-.8-2.2Z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="3"/><path d="m16 10 5-3v10l-5-3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m4 17 5-4 4 3 3-3 4 4"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h3M11 12h9M4 18h8M16 18h4"/><circle cx="16" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="14" cy="18" r="2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 5 14h6l-1 8 9-13h-6V2Z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 5c2.4-2.4 5.2-2.8 7-2- .8 1.8-1.6 4.6-4 7l-4 4-4-4 5-5Z"/><path d="m9 10-4 1-2 3 6 1M13 14l-1 5-3 2-1-6M15 6l3 3"/></symbol>
+  </defs></svg>
 
-function fmt(n) { return n.toLocaleString('ru-RU'); }
-function escapeHtml(value) { const node = document.createElement('div'); node.textContent = String(value || ''); return node.innerHTML; }
-function currentPrice() { return Math.ceil((base[quality] * (duration / 5)) / 50) * 50; }
-function sync() {
-  ['sideBalance', 'miniBalance', 'bigBalance'].forEach(id => {
-    const element = document.getElementById(id);
-    if (element) element.textContent = fmt(balance) + ' T';
-  });
-  document.getElementById('price').textContent = fmt(currentPrice()) + ' T';
-  document.getElementById('priceBtn').textContent = fmt(currentPrice());
-  localStorage.setItem('konteno_balance', balance);
-}
-function notify(message) {
-  const toast = document.getElementById('toast');
-  toast.textContent = message;
-  toast.classList.remove('hide');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.add('hide'), 3500);
-}
-function goHome() {
-  closeModal();
-  document.getElementById('studio').style.display = 'none';
-  document.getElementById('landing').style.display = '';
-  document.getElementById('top').style.display = '';
-  history.pushState({view: 'landing'}, '', location.pathname + location.search);
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-function openStudio(page = 'home', updateHistory = true) {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('top').style.display = 'none';
-  document.getElementById('studio').style.display = 'block';
-  showPage(page, updateHistory);
-}
-function showPage(id, updateHistory = true) {
-  if (!pages.includes(id)) id = 'home';
-  document.querySelectorAll('.page').forEach(element => element.classList.add('hide'));
-  document.getElementById(id).classList.remove('hide');
-  document.querySelectorAll('[data-page]').forEach(element => element.classList.toggle('active', element.dataset.page === id));
-  if (id === 'works') renderWorks();
-  if (updateHistory) history.pushState({view: 'studio', page: id}, '', '#' + id);
-  sync();
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-function continuePrompt() {
-  const value = document.getElementById('homePrompt').value.trim();
-  if (!value) { notify('Сначала опиши свою идею'); document.getElementById('homePrompt').focus(); return; }
-  document.getElementById('assistantInput').value = value;
-  showPage('assistant');
-  assistantGo();
-}
-function startTask(text) {
-  document.getElementById('assistantInput').value = text;
-  showPage('assistant');
-  document.getElementById('assistantInput').focus();
-}
-function previewFile(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) { notify('Выбери JPG, PNG или WEBP'); event.target.value = ''; return; }
-  if (file.size > 15 * 1024 * 1024) { notify('Файл больше 15 МБ'); event.target.value = ''; return; }
-  const reader = new FileReader();
-  reader.onload = () => {
-    imageData = reader.result;
-    document.getElementById('upload').innerHTML = '<img src="' + imageData + '" alt="Загруженное фото"><input type="file" accept="image/jpeg,image/png,image/webp" aria-label="Заменить фото" onchange="previewFile(event)">';
-  };
-  reader.readAsDataURL(file);
-}
-function addPrompt(text) { const input = document.getElementById('motion'); input.value = input.value ? input.value + '. ' + text : text; input.focus(); }
-function pickDuration(element, value) { duration = value; document.querySelectorAll('.segments button').forEach(item => item.classList.remove('sel')); element.classList.add('sel'); sync(); }
-function pickQuality(element, value) { quality = value; document.querySelectorAll('.qualities button').forEach(item => item.classList.remove('sel')); element.classList.add('sel'); sync(); }
-function confirmGeneration() {
-  if (!imageData) { notify('Сначала загрузи фото'); document.getElementById('file')?.focus(); return; }
-  if (document.getElementById('motion').value.trim().length < 3) { notify('Опиши движение'); document.getElementById('motion').focus(); return; }
-  const price = currentPrice();
-  if (balance < price) { showPage('balance'); notify('Недостаточно токенов — выбери пакет'); return; }
-  document.getElementById('mDur').textContent = duration + ' сек.';
-  document.getElementById('mQual').textContent = {economy: '💰 Выгодно', optimal: '⚖️ Оптимально', maximum: '✨ Максимум'}[quality];
-  document.getElementById('mPrice').textContent = fmt(price) + ' T';
-  document.getElementById('modal').classList.remove('hide');
-  document.querySelector('#modal .primary').focus();
-}
-function closeModal() { document.getElementById('modal').classList.add('hide'); }
-function startGeneration() {
-  closeModal();
-  balance -= currentPrice();
-  sync();
-  document.getElementById('animateForm').classList.add('hide');
-  document.getElementById('generation').classList.remove('hide');
-  document.getElementById('result').classList.add('hide');
-  let progress = 0;
-  const labels = ['Анализируем изображение', 'Улучшаем описание', 'Выбираем подходящий AI', 'Генерируем видео', 'Готовим результат'];
-  document.getElementById('steps').innerHTML = labels.map(label => '<div class="step">' + label + '</div>').join('');
-  const timer = setInterval(() => {
-    progress = Math.min(100, progress + Math.floor(Math.random() * 14) + 7);
-    document.getElementById('pct').textContent = progress + '%';
-    document.getElementById('orb').style.setProperty('--deg', (progress * 3.6) + 'deg');
-    document.querySelectorAll('#steps .step').forEach((step, index) => step.classList.toggle('done', progress > (index + 1) * 18));
-    if (progress >= 100) { clearInterval(timer); setTimeout(finish, 450); }
-  }, 350);
-}
-function finish() {
-  document.getElementById('generation').classList.add('hide');
-  document.getElementById('result').classList.remove('hide');
-  if (imageData) document.getElementById('resultThumb').innerHTML = '<img src="' + imageData + '" alt="Превью результата">';
-  works.unshift({title: 'Оживлённое фото', prompt: document.getElementById('motion').value, cost: currentPrice(), image: imageData, date: new Date().toLocaleString('ru-RU')});
-  works = works.slice(0, 20);
-  try { localStorage.setItem('konteno_works', JSON.stringify(works)); } catch { notify('Результат готов, но памяти браузера недостаточно для сохранения'); }
-}
-function editAgain() { document.getElementById('result').classList.add('hide'); document.getElementById('animateForm').classList.remove('hide'); }
-function downloadResult() {
-  if (!imageData) { notify('Превью пока недоступно'); return; }
-  const link = document.createElement('a'); link.href = imageData; link.download = 'konteno-preview.png'; link.click();
-  notify('Превью скачано');
-}
-function renderWorks() {
-  const grid = document.getElementById('worksGrid');
-  if (!works.length) return;
-  grid.innerHTML = works.map(work => '<div class="card work"><div class="thumb">' + (work.image ? '<img src="' + work.image + '" alt="Превью работы">' : '▶') + '</div><div class="workbody"><h3>' + escapeHtml(work.title) + '</h3><p>' + escapeHtml(work.prompt) + '</p><small>' + escapeHtml(work.date) + ' · <b>' + fmt(Number(work.cost) || 0) + ' T</b></small></div></div>').join('');
-}
-function buy(amount) {
-  balance += amount; sync();
-  const notice = document.getElementById('payNotice');
-  notice.textContent = 'Демо: начислено ' + fmt(amount) + ' токенов. В production здесь откроется оплата российской картой.';
-  notice.classList.remove('hide');
-  notice.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-}
-function idea(element) { document.getElementById('assistantInput').value = element.textContent; document.getElementById('assistantInput').focus(); }
-function assistantGo() {
-  const query = document.getElementById('assistantInput').value.trim();
-  if (!query) { notify('Напиши задачу для помощника'); document.getElementById('assistantInput').focus(); return; }
-  const answer = document.getElementById('assistantAnswer');
-  answer.innerHTML = '<h3>Идея готова ✨</h3><p>Для «' + escapeHtml(query) + '» начни с сильного визуального hook в первые 1–2 секунды, затем одно понятное развитие и короткий payoff.</p><button class="btn primary" onclick="showPage(\'animate\')">Оживить фото</button>';
-  answer.classList.remove('hide');
-}
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="KONTENO — на главную"><svg class="brand-mark" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-name">KONTENO</span></a>
+    <nav class="product-nav" aria-label="Инструменты KONTENO">
+      <a class="nav-link" href="#" data-action="coming"><svg class="icon"><use href="#i-bulb"/></svg><span>Идея</span></a>
+      <a class="nav-link" href="#" data-action="coming"><svg class="icon"><use href="#i-video"/></svg><span>Видео</span></a>
+      <a class="nav-link" href="#" data-action="coming"><svg class="icon"><use href="#i-image"/></svg><span>Изображение</span></a>
+      <a class="nav-link" href="#" data-action="coming"><svg class="icon"><use href="#i-sliders"/></svg><span>Редактор</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-action="notifications" aria-label="Уведомления"><svg class="icon"><use href="#i-bell"/></svg><span class="unread"></span></button>
+      <a class="header-balance" href="#energy" aria-label="Баланс энергии 38 000"><span class="energy-amount"><span>38 000</span><svg class="icon"><use href="#i-zap"/></svg></span></a>
+      <button class="avatar-button" type="button" data-action="profile" aria-label="Открыть профиль"><span class="avatar" aria-hidden="true"></span><svg class="icon chevron"><use href="#i-chevron"/></svg></button>
+    </div>
+  </header>
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeModal();
-  if ((event.key === 'Enter' || event.key === ' ') && event.target.classList.contains('task')) { event.preventDefault(); event.target.click(); }
-});
-window.addEventListener('popstate', event => {
-  const page = location.hash.slice(1);
-  if (pages.includes(page)) openStudio(page, false);
-  else { document.getElementById('studio').style.display = 'none'; document.getElementById('landing').style.display = ''; document.getElementById('top').style.display = ''; }
-});
-if (pages.includes(location.hash.slice(1))) openStudio(location.hash.slice(1), false);
-else sync();
-</script></body></html>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="floating-card metric m-follow"><small>Подписчики</small><b>12.4K</b><em>+18%</em></div>
+      <div class="floating-card metric m-like"><small>Лайки</small><b class="pink">8.7K</b></div>
+      <div class="floating-card metric m-share"><small>Репосты</small><b>2.3K</b><em>+15%</em></div>
+      <div class="floating-card metric m-comments"><small>Комментарии</small><b>1.6K</b></div>
+      <div class="floating-card follow-card"><span class="mini-avatar"></span><span><b>Новый подписчик</b><small>только что</small></span></div>
+      <span class="float-icon fi-bulb"><svg class="icon"><use href="#i-bulb"/></svg></span><span class="float-icon fi-play"><svg class="icon icon-fill"><use href="#i-play"/></svg></span><span class="float-icon fi-heart"><svg class="icon"><use href="#i-heart"/></svg></span><span class="float-icon fi-image"><svg class="icon"><use href="#i-image"/></svg></span>
+      <div class="hero-copy">
+        <h1 id="hero-title"><span class="accent">KONTENO —</span><br>твой личный<br>AI-помощник в создании<br>контента</h1>
+        <p>От идеи до готового контента — в одном месте.</p>
+        <div class="hero-actions"><button class="btn btn-primary" type="button" data-action="create">+ Создать проект</button><a class="btn btn-secondary" href="#products">Посмотреть возможности</a></div>
+      </div>
+    </section>
+
+    <section class="wrap product-grid" id="products" aria-label="Инструменты">
+      <a class="product-card" href="#" data-action="coming"><span class="product-art"><svg class="icon"><use href="#i-bulb"/></svg></span><h2>Идея</h2><p>Сценарии, тексты, структуры</p></a>
+      <a class="product-card" href="#" data-action="coming"><span class="product-art"><svg class="icon"><use href="#i-image"/></svg></span><h2>Изображение</h2><p>Картинки, арты, дизайны</p></a>
+      <a class="product-card" href="#" data-action="coming"><span class="product-art"><svg class="icon"><use href="#i-video"/></svg></span><h2>Видео</h2><p>Видеоролики, клипы, рилсы</p></a>
+      <a class="product-card" href="#" data-action="coming"><span class="product-art"><svg class="icon"><use href="#i-sliders"/></svg></span><h2>Редактор</h2><p>Улучшение и трансформация</p></a>
+    </section>
+
+    <section class="wrap section-card works" aria-labelledby="works-title">
+      <div class="section-head"><h2 id="works-title">Лучшие работы</h2><a class="text-link" href="#" data-action="projects">Все проекты <span>→</span></a></div>
+      <div class="works-grid">
+        <div class="reference-crop" style="--x:65;--y:525;--cw:312;--ch:161;--tx:-5.793%;--ty:-37.447%"><img src="codex-references/approved-visuals/HOME_FINAL.webp" alt="Неоновый спортивный автомобиль"></div>
+        <div class="reference-crop" style="--x:394;--y:525;--cw:211;--ch:161;--tx:-35.116%;--ty:-37.447%"><img src="codex-references/approved-visuals/HOME_FINAL.webp" alt="Горное озеро"></div>
+        <div class="reference-crop" style="--x:625;--y:525;--cw:190;--ch:161;--tx:-55.704%;--ty:-37.447%"><img src="codex-references/approved-visuals/HOME_FINAL.webp" alt="Фитнес-видео"></div>
+      </div>
+    </section>
+
+    <section class="wrap section-card tariffs" aria-labelledby="tariffs-title">
+      <div class="tariff-title"><h2 id="tariffs-title">Тарифные планы</h2><p>Выберите подходящий план для ваших задач</p></div>
+      <div class="tariff-grid" id="tariff-grid"></div>
+      <p class="tariff-note">При оплате тарифа энергия начисляется ежемесячно и расходуется во всех инструментах KONTENO.</p>
+    </section>
+
+    <section class="wrap commerce-grid" id="energy" aria-label="Энергия KONTENO">
+      <div class="topup-card">
+        <div>
+          <h2>Пополнение энергии</h2><p class="helper">Выберите сумму и получите бонус к пополнению.</p>
+          <label class="amount-label" for="topup-input"><span>Сумма пополнения</span><span id="bonus-label">Бонус +10%</span></label>
+          <input class="amount-input" id="topup-input" type="number" inputmode="numeric" min="100" max="10000" step="1" value="1000" aria-describedby="topup-result">
+          <input class="slider" id="topup-slider" type="range" min="100" max="10000" step="1" value="1000" aria-label="Сумма пополнения в рублях">
+          <button class="btn btn-primary" type="button" data-action="topup">Пополнить баланс</button>
+        </div>
+        <div class="quote" id="topup-result" aria-live="polite">
+          <div class="quote-row"><span>Базовая энергия</span><b id="base-energy">10 000</b></div>
+          <div class="quote-row"><span>Бонус</span><b id="bonus-energy">+1 000</b></div>
+          <div class="quote-row"><span>К оплате</span><b id="pay-rub">1 000 ₽</b></div>
+          <div class="quote-row total"><span>Получишь</span><b class="energy-amount"><span id="final-energy">11 000</span><svg class="icon"><use href="#i-zap"/></svg></b></div>
+        </div>
+      </div>
+      <aside class="wallet-card">
+        <span class="wallet-icon"><svg class="icon"><use href="#i-zap"/></svg></span><h2>Единый баланс</h2>
+        <div class="wallet-balance energy-amount"><span>38 000</span><svg class="icon"><use href="#i-zap"/></svg></div><small>Для всех инструментов</small>
+        <div class="wallet-tools" aria-label="Инструменты с единым балансом"><span class="wallet-tool" title="Идея"><svg class="icon"><use href="#i-bulb"/></svg></span><span class="wallet-tool" title="Изображение"><svg class="icon"><use href="#i-image"/></svg></span><span class="wallet-tool" title="Видео"><svg class="icon"><use href="#i-video"/></svg></span><span class="wallet-tool" title="Редактор"><svg class="icon"><use href="#i-sliders"/></svg></span></div>
+        <a class="text-link" href="#" data-action="history">История операций <span>→</span></a>
+      </aside>
+    </section>
+
+    <section class="wrap final-cta" aria-labelledby="final-title">
+      <span class="cta-object rocket"><svg class="icon"><use href="#i-rocket"/></svg></span><span class="cta-object media"><svg class="icon icon-fill"><use href="#i-play"/></svg></span><span class="star star-a">✦</span><span class="star star-b">✦</span><span class="star star-c">✦</span>
+      <div class="cta-copy"><h2 id="final-title">Готов создать что-то своё?</h2><p>Начни прямо сейчас — твои идеи станут реальностью с KONTENO.</p><button class="btn btn-primary" type="button" data-action="create">+ Создать проект</button></div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const HOME_TARIFFS = Object.freeze([
+      { name: 'Start', price: 990, audience: 'Для новичков', monthlyEnergy: 8000, features: ['Базовые AI-инструменты', 'Ограниченный объём генераций', 'Стандартная очередь', 'Экспорт в популярных форматах'] },
+      { name: 'Creator', price: 2490, audience: 'Для активных авторов', monthlyEnergy: 25000, recommended: true, features: ['Увеличенный объём генераций', 'Все основные инструменты', 'Более гибкие настройки', 'Приоритетная очередь'] },
+      { name: 'Pro', price: 4990, audience: 'Для профессионалов', monthlyEnergy: 60000, features: ['Высокий объём генераций', 'Премиум-режимы качества', 'Расширенный экспорт', 'Высокий приоритет'] },
+      { name: 'Studio', price: 9990, audience: 'Для команд', monthlyEnergy: 150000, features: ['Максимальный объём', 'Совместная работа', 'Все инструменты', 'Приоритетная поддержка'] }
+    ]);
+    const HOME_ENERGY_CONFIG = Object.freeze({ minRub: 100, maxRub: 10000, energyPerRub: 10, bonusThresholds: Object.freeze([{ min: 5000, percent: 20 }, { min: 2500, percent: 15 }, { min: 1000, percent: 10 }, { min: 500, percent: 5 }, { min: 0, percent: 0 }]) });
+    const numberFormat = new Intl.NumberFormat('ru-RU');
+    const formatNumber = value => numberFormat.format(Math.round(value));
+    const formatEnergy = value => `${formatNumber(value)} ⚡`;
+    function homeQuote(rawRub) {
+      const rub = Math.min(HOME_ENERGY_CONFIG.maxRub, Math.max(HOME_ENERGY_CONFIG.minRub, Math.round(Number(rawRub) || HOME_ENERGY_CONFIG.minRub)));
+      const bonusPercent = HOME_ENERGY_CONFIG.bonusThresholds.find(item => rub >= item.min).percent;
+      const baseEnergy = rub * HOME_ENERGY_CONFIG.energyPerRub;
+      const bonusEnergy = Math.round(baseEnergy * bonusPercent / 100);
+      return { rub, bonusPercent, baseEnergy, bonusEnergy, finalEnergy: baseEnergy + bonusEnergy };
+    }
+    function energyHtml(value) { return `<span class="energy-amount"><span>${formatNumber(value)}</span><svg class="icon" aria-hidden="true"><use href="#i-zap"></use></svg></span>`; }
+    function renderTariffs() {
+      document.getElementById('tariff-grid').innerHTML = HOME_TARIFFS.map(tariff => `<article class="tariff-card${tariff.recommended ? ' recommended' : ''}">${tariff.recommended ? '<span class="recommended-badge">Рекомендуем</span>' : ''}<h3>${tariff.name}</h3><span class="tariff-for">${tariff.audience}</span><div class="tariff-price">${formatNumber(tariff.price)} ₽ <small>/ мес</small></div><div class="tariff-energy">${energyHtml(tariff.monthlyEnergy)} / мес</div><ul class="tariff-list">${tariff.features.map(feature => `<li>${feature}</li>`).join('')}</ul><button class="btn ${tariff.recommended ? 'btn-primary' : 'btn-secondary'}" type="button" data-action="tariff">Выбрать</button></article>`).join('');
+    }
+    const input = document.getElementById('topup-input');
+    const slider = document.getElementById('topup-slider');
+    function updateTopup(value) {
+      const quote = homeQuote(value);
+      input.value = quote.rub; slider.value = quote.rub;
+      slider.style.setProperty('--progress', `${(quote.rub - HOME_ENERGY_CONFIG.minRub) / (HOME_ENERGY_CONFIG.maxRub - HOME_ENERGY_CONFIG.minRub) * 100}%`);
+      document.getElementById('bonus-label').textContent = `Бонус +${quote.bonusPercent}%`;
+      document.getElementById('base-energy').textContent = formatNumber(quote.baseEnergy);
+      document.getElementById('bonus-energy').textContent = `+${formatNumber(quote.bonusEnergy)}`;
+      document.getElementById('pay-rub').textContent = `${formatNumber(quote.rub)} ₽`;
+      document.getElementById('final-energy').textContent = formatNumber(quote.finalEnergy);
+    }
+    input.addEventListener('input', event => updateTopup(event.target.value));
+    slider.addEventListener('input', event => updateTopup(event.target.value));
+    let toastTimer;
+    function showToast(message) { const toast = document.getElementById('toast'); clearTimeout(toastTimer); toast.textContent = message; toast.classList.add('show'); toastTimer = setTimeout(() => toast.classList.remove('show'), 2600); }
+    document.addEventListener('click', event => { const action = event.target.closest('[data-action]'); if (!action) return; event.preventDefault(); const type = action.dataset.action; if (type === 'topup') showToast('Оплата пока работает в DEMO-режиме. Баланс не изменён.'); else if (type === 'notifications') showToast('Новых уведомлений нет'); else if (type === 'profile') showToast('Профиль скоро будет доступен'); else showToast(type === 'tariff' ? 'Подключение тарифа скоро будет доступно' : 'Рабочее пространство скоро будет доступно'); });
+    renderTariffs(); updateTopup(1000);
+    if (typeof module !== 'undefined' && module.exports) module.exports = { HOME_TARIFFS, HOME_ENERGY_CONFIG, formatEnergy, homeQuote };
+  </script>
+</body>
+</html>
